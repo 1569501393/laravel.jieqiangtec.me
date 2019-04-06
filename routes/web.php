@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+// 后面的路由覆盖前面的
+//Route::get('/test', 'IndexController@index');
+Route::get('/', 'IndexController@index');
+
