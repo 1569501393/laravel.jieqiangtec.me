@@ -18,5 +18,26 @@
 
 // 后面的路由覆盖前面的
 //Route::get('/test', 'IndexController@index');
-Route::get('/', 'IndexController@index');
+// Route::get('/', 'IndexController@index');
+
+Route::get('/', function (){
+    return view('welcome');
+});
+
+Route::group(['middleware' => ['web']], function (){
+
+    Route::get('/', function (){
+        return view('welcome');
+    });
+
+    Route::get('/test', 'IndexController@index');
+
+    Route::get('admin/login', 'Admin\LoginController@login');
+    Route::get('admin/code', 'Admin\LoginController@code');
+    Route::get('admin/getcode', 'Admin\LoginController@getcode');
+
+
+});
+
+
 

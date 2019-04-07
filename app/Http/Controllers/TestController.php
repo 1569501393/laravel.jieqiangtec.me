@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Model\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class IndexController extends Controller
+class TestController extends Controller
 {
-    /**
-     *
-     */
     public function index()
     {
         // 测试数据库连接
-        $pdo = DB::connection()->getPdo();
-        dd($pdo);
+        // $user            = DB::table('user')->get();
 
-        $user = DB::table('user')->get();
-        dd($user);
         // 获取user_id=1的用户，返回二维数组
         $user1 = User::where('user_id', 1)->get();
         $user1 = User::where('user_id', 1)->first();

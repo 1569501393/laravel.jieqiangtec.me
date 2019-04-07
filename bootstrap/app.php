@@ -11,6 +11,9 @@
 |
 */
 
+// 错误级别设置 by jieqiang
+//error_reporting(0);
+
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
