@@ -36,7 +36,9 @@ class LoginController extends CommonController
             }
 
             session(['user' => $user]);
-            dd(session('user'), $user);
+
+            // dd(session('user'), $user);
+            return redirect('admin/index');
 
         }else {
             // dd($user = User::first());
