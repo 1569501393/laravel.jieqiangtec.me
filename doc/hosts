@@ -13,136 +13,131 @@
 #
 # For example:
 #
-#      102.54.94.97     rhino.acme.com          # source server
-#       38.25.63.10     x.acme.com              # x client host
+# 102.54.94.97 rhino.acme.com # source server
+# 38.25.63.10 x.acme.com # x client host
 
 # localhost name resolution is handled within DNS itself.
-#	127.0.0.1       localhost
-#	::1             localhost
-# 127.0.0.1       www.youqiwu.com
+#	127.0.0.1 localhost
+#	::1 localhost
+# 127.0.0.1 www.youqiwu.com
 
 # 百度云加速
-58.217.200.14  cdn.baidupcs.com
-58.217.200.14  hot.cdn.baidupcs.com
+58.217.200.14 cdn.baidupcs.com
+58.217.200.14 hot.cdn.baidupcs.com
 
 0.0.0.0 account.jetbrains.com
 
+# 115.28.7.84 wd.jieqiangtec.com
+127.0.0.1 ecshop273.jieqiangtec.cn
+127.0.0.1 coupon.jieqiangtec.cn
 
-# 115.28.7.84       wd.jieqiangtec.com
-127.0.0.1       ecshop273.jieqiangtec.cn
-127.0.0.1       coupon.jieqiangtec.cn
+127.0.0.1 diy.jieqiangtec.cn
+127.0.0.1 diy.rongec.cn
+127.0.0.1 ew.jieqiangtec.cn
+127.0.0.1 shop2.jieqiangtec.cn
 
-127.0.0.1       diy.jieqiangtec.cn
-127.0.0.1       diy.rongec.cn
-127.0.0.1       ew.jieqiangtec.cn
-127.0.0.1       shop2.jieqiangtec.cn
+127.0.0.1 shop.jieqiangtec.cn
 
-127.0.0.1       shop.jieqiangtec.cn
+127.0.0.1 dcold.jieqiangtec.cn
+127.0.0.1 dc.jieqiangtec.cn
+127.0.0.1 mobilecms.jieqiangtec.cn
+127.0.0.1 shop.rongec.cn
+127.0.0.1 fkl.jieqiangtec.cn
+127.0.0.1 wd2.jieqiangtec.cn
 
-127.0.0.1       dcold.jieqiangtec.cn
-127.0.0.1       dc.jieqiangtec.cn
-127.0.0.1       mobilecms.jieqiangtec.cn
-127.0.0.1       shop.rongec.cn
-127.0.0.1       fkl.jieqiangtec.cn
-127.0.0.1       wd2.jieqiangtec.cn
+127.0.0.1 cps2.jieqiangtec.cn
+127.0.0.1 erp.jieqiangtec.cn
+127.0.0.1 erp.rongec.cn
+127.0.0.1 erp2.jieqiangtec.cn
+127.0.0.1 cps.adjyc.cn
+127.0.0.1 cps.jieqiangtec.cn
+127.0.0.1 wd.jieqiangtec.cn
+127.0.0.1 www.epwk.aii
 
+127.0.0.1 static.epwk.me
+127.0.0.1 admin.epwk.me
 
+10.0.100.84 img10.epwk.aii
+10.0.100.84 img11.epwk.aii
+10.0.100.84 img12.epwk.aii
+10.0.100.84 img13.epwk.aii
+10.0.100.84 img14.epwk.aii
 
-127.0.0.1       cps2.jieqiangtec.cn
-127.0.0.1       erp.jieqiangtec.cn
-127.0.0.1       erp.rongec.cn
-127.0.0.1       erp2.jieqiangtec.cn
-127.0.0.1       cps.adjyc.cn
-127.0.0.1       cps.jieqiangtec.cn
-127.0.0.1       wd.jieqiangtec.cn
-127.0.0.1       www.epwk.aii
+127.0.0.1 www.epwk.bb
+127.0.0.1 localhost
+127.0.0.1 callcenter.api.epweike.me
 
-127.0.0.1       static.epwk.me
-127.0.0.1       admin.epwk.me
+# 112.124.10.212 img11.weikeimg.com
+# 112.124.10.212 www.epwk.com
+# 121.40.132.31 shop.epwk.com
 
-10.0.100.84       img10.epwk.aii
-10.0.100.84       img11.epwk.aii
-10.0.100.84       img12.epwk.aii
-10.0.100.84       img13.epwk.aii
-10.0.100.84       img14.epwk.aii
-
-
-127.0.0.1       www.epwk.bb
-127.0.0.1       localhost
-127.0.0.1       callcenter.api.epweike.me
-
-
-112.124.10.212       img11.weikeimg.com
-112.124.10.212       www.epwk.com
-121.40.132.31       shop.epwk.com
-
-127.0.0.1       www.epbiao.me
-127.0.0.1       zt.epwk.me
-127.0.0.1       zt.epwk.mee
-
+127.0.0.1 www.epbiao.me
+127.0.0.1 zt.epwk.me
+127.0.0.1 zt.epwk.mee
 
 # 图片
-10.0.100.84       img10.epwk.me
-10.0.100.84       img11.epwk.me
-10.0.100.84       img12.epwk.me
-10.0.100.84       img13.epwk.me
-10.0.100.84       img14.epwk.me
+10.0.100.84 img10.epwk.me
+10.0.100.84 img11.epwk.me
+10.0.100.84 img12.epwk.me
+10.0.100.84 img13.epwk.me
+10.0.100.84 img14.epwk.me
 
-10.0.100.84	img10.jiuyeyuan.me 
-10.0.100.84	img11.jiuyeyuan.me 
-10.0.100.84	img12.jiuyeyuan.me 
-10.0.100.84	img13.jiuyeyuan.me 
-10.0.100.84	img14.jiuyeyuan.me 
+10.0.100.84	img10.jiuyeyuan.me
+10.0.100.84	img11.jiuyeyuan.me
+10.0.100.84	img12.jiuyeyuan.me
+10.0.100.84	img13.jiuyeyuan.me
+10.0.100.84	img14.jiuyeyuan.me
 
+127.0.0.1 www.epwk.me
+127.0.0.1 msec.jieqiangtec.cn
+127.0.0.1 app2.api.epweike.me
 
+127.0.0.1 s.epwk.bb
+127.0.0.1 s.epweike.bb
+127.0.0.1 m.epwk.bb
+127.0.0.1 m.epbiao.bb
+127.0.0.1 app2.api.epbiao.bb
+127.0.0.1 epwk.btt
+127.0.0.1 www.pc.com
+127.0.0.1 epwk.me
+127.0.0.1 www.pctest.com
+127.0.0.1 www.wd.com
+127.0.0.1 www.tp5test.com
+127.0.0.1 app.api.youqiwu.bb
 
-127.0.0.1       www.epwk.me
-127.0.0.1       msec.jieqiangtec.cn
-127.0.0.1       app2.api.epweike.me
+127.0.0.1 www.apk.com
+127.0.0.1 app.apk.com
+127.0.0.1 app2.api.epweike.bb
+127.0.0.1 www.tp5.com
+127.0.0.1 www.wap.com
+127.0.0.1 app.api.epweike.bb
+127.0.0.1 www.pc.com
 
+127.0.0.1 www.yqw.com
+127.0.0.1 www.ctw.com
+127.0.0.1 wc.jieqiangtec.cn
+127.0.0.1 cps.adjyc.cn
+127.0.0.1 wx.adjyc.cn
+127.0.0.1 wc.adjyc.cn
 
-127.0.0.1       s.epwk.bb
-127.0.0.1       s.epweike.bb
-127.0.0.1       m.epwk.bb
-127.0.0.1       m.epbiao.bb
-127.0.0.1       app2.api.epbiao.bb
-127.0.0.1       epwk.btt
-127.0.0.1       www.pc.com
-127.0.0.1       epwk.me
-127.0.0.1       www.pctest.com
-127.0.0.1       www.wd.com
-127.0.0.1       www.tp5test.com
-127.0.0.1       app.api.youqiwu.bb
+# 115.28.7.84 wd.jieqiangtec.com
 
+127.0.0.1 ocean.epweike.me
+127.0.0.1 git.epwk.hk
+127.0.0.1 blog.epwk.me
+127.0.0.1 hdblog.epwk.me
+127.0.0.1 blog.hd
+127.0.0.1 blog_study.hd
+127.0.0.1 zycpark.me
+127.0.0.1 gh.jieqiangtec.me
+127.0.0.1 laravel.jieqiangtec.me
+127.0.0.1 laravel_git.jieqiangtec.me
+127.0.0.1 blog.jieqiangtec.me
 
-127.0.0.1       www.apk.com
-127.0.0.1       app.apk.com
-127.0.0.1       app2.api.epweike.bb
-127.0.0.1       www.tp5.com
-127.0.0.1       www.wap.com
-127.0.0.1       app.api.epweike.bb
-127.0.0.1       www.pc.com
+::1 localhost
 
-127.0.0.1       www.yqw.com
-127.0.0.1       www.ctw.com
-127.0.0.1       wc.jieqiangtec.cn
-127.0.0.1       cps.adjyc.cn
-127.0.0.1       wx.adjyc.cn
-127.0.0.1       wc.adjyc.cn
+127.0.0.1	gh.jieqiangtec.me
+::1	gh.jieqiangtec.me
 
-
-# 115.28.7.84       wd.jieqiangtec.com
-
-
-127.0.0.1       ocean.epweike.me
-127.0.0.1       git.epwk.hk
-127.0.0.1       blog.epwk.me
-127.0.0.1       hdblog.epwk.me
-127.0.0.1       blog.hd
-127.0.0.1       blog_study.hd
-127.0.0.1       zycpark.me
-127.0.0.1       gh.jieqiangtec.me
-127.0.0.1       laravel.jieqiangtec.me
-127.0.0.1       laravel_git.jieqiangtec.me
-
-
+127.0.0.1	gh.jieqiangtec.me
+::1	gh.jieqiangtec.me

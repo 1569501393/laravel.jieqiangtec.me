@@ -11,7 +11,7 @@
 |
 */
 
-// 错误级别设置 by jieqiang
+// 错误级别设置 by jieqiang 无效
 //error_reporting(0);
 
 $app = new Illuminate\Foundation\Application(

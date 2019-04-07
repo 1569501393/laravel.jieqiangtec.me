@@ -26,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        // TODO 错误级别更改 ok
+        // error_reporting(0);
+
         DB::listen(function ($sql){
             foreach ($sql->bindings as $i => $binding) {
                 if ($binding instanceof \DateTime) {

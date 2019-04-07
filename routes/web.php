@@ -32,9 +32,13 @@ Route::group(['middleware' => ['web']], function (){
 
     Route::get('/test', 'IndexController@index');
 
-    Route::get('admin/login', 'Admin\LoginController@login');
+    Route::any('admin/login', 'Admin\LoginController@login');
     Route::get('admin/code', 'Admin\LoginController@code');
     Route::get('admin/getcode', 'Admin\LoginController@getcode');
+
+    Route::any('admin/crypt', 'Admin\LoginController@crypt');
+    Route::any('admin/test', 'Admin\LoginController@test');
+
 
 
 });

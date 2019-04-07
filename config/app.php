@@ -1,5 +1,8 @@
 <?php
 
+// TODO 错误级别更改 无效
+//error_reporting(0);
+
 return [
 
     /*
