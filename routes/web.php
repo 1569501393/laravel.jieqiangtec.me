@@ -45,12 +45,32 @@ Route::group(['middleware' => ['web']], function (){
     Route::any('admin/test', 'Admin\LoginController@test');
 
     // 后台首页
-    Route::any('admin/index', 'Admin\IndexController@index');
-    Route::any('admin/info', 'Admin\IndexController@info');
-
-
+    /*Route::any('admin/index', 'Admin\IndexController@index');
+    Route::any('admin/info', 'Admin\IndexController@info');*/
 
 });
+
+
+/*Route::group(['middleware' => ['web', 'admin.login']], function (){
+    // 后台首页
+    Route::any('admin/index', 'Admin\IndexController@index');
+    Route::any('admin/info', 'Admin\IndexController@info');
+    Route::any('admin/quit', 'Admin\LoginController@quit');
+});*/
+
+/**
+ * 路由前缀和命名空间
+ */
+Route::group(['middleware' => ['web', 'admin.login'], 'prefix'=>'admin', 'namespace'=>'Admin'], function (){
+    // 后台首页
+    Route::get('index', 'IndexController@index');
+    Route::get('info', 'IndexController@info');
+    Route::get('quit', 'LoginController@quit');
+
+    // 修改密码
+    Route::any('pass', 'IndexController@pass');
+});
+
 
 
 

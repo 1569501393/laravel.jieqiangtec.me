@@ -126,8 +126,18 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    // 'log' => env('APP_LOG', 'single'),
+    // 按天存储
+    'log' => env('APP_LOG', 'daily'),
 
+    // 日志文件最大生命周期 使用daily日志模式的时候，Laravel默认最多为我们保留最近5天的日志，如果你想要修改这个时间，需要添加一个配置log_max_files到app配置文件：
+
+    // 'log_max_files' => 10000,
+
+
+    // 日志错误级别 使用Monolog的时候，日志消息可能有不同的错误级别，默认情况下，Laravel将所有日志写到storage目录，但是在生产环境中，你可能想要配置最低错误级别，这可以通过在配置文件app.php中通过添加配置项 log_level 来实现。
+
+    // 该配置项被配置后，Laravel会记录所有错误级别大于等于这个指定级别的日志，例如，默认 log_level 是 error ，则将会记录error、critical、alert以及emergency级别的日志信息：
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
     /*

@@ -42,12 +42,14 @@ class LoginController extends CommonController
 
         }else {
             // dd($user = User::first());
+            // 清空session
+            session(['user'=>null]);
             return view('admin.login');
         }
     }
 
     /**
-     *
+     * 创建验证码
      */
     public function code()
     {
@@ -56,7 +58,7 @@ class LoginController extends CommonController
     }
 
     /**
-     *
+     * 获取验证码
      */
     public function getCode()
     {
@@ -65,10 +67,15 @@ class LoginController extends CommonController
     }
 
 
+    /**
+     * 密码加密
+     */
     public function crypt()
     {
         $str = '123456';
         // eyJpdiI6IkYxZkNDZlgwVEhuRU9VZ08xamkwcGc9PSIsInZhbHVlIjoibFNZOG9PRzR1T3c0K3lpN1ZFOW1PZz09IiwibWFjIjoiMmExMDQzODJjM2M4MWVmNDZkMWJhZjM2ZmQ4YmUxNjE3ZDNmZmYwNWI3NmM4N2Y0NmNkY2EzNzZjYjBhYWIwNiJ9
+        // eyJpdiI6ImE2WW5vOWJyRnBGSWI2SXBIZHZ1SUE9PSIsInZhbHVlIjoibnlFRlVoSm5TSUgzbkxHR1NidVIwQT09IiwibWFjIjoiOWM3NjU2MDZjNWJlOWY5OGU1ODAwZmIxMjAzNzdmZTE3YjYyYzkzMDI0NmU0YjVlMzljNzQwM2FiMDcxZGZjYyJ9
+
         $strPass    = 'eyJpdiI6IkYxZkNDZlgwVEhuRU9VZ08xamkwcGc9PSIsInZhbHVlIjoibFNZOG9PRzR1T3c0K3lpN1ZFOW1PZz09IiwibWFjIjoiMmExMDQzODJjM2M4MWVmNDZkMWJhZjM2ZmQ4YmUxNjE3ZDNmZmYwNWI3NmM4N2Y0NmNkY2EzNzZjYjBhYWIwNiJ9';
         $strEncrypt = Crypt::encrypt($str);
         $strDecrypt = Crypt::decrypt($strPass);
@@ -76,6 +83,20 @@ class LoginController extends CommonController
         dd($strEncrypt, $strDecrypt);
     }
 
+
+    /**
+     * 退出登录
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function quit()
+    {
+        session(['user'=>null]);
+        return redirect('admin/login');
+    }
+
+    /**
+     * 测试代码
+     */
     public function test()
     {
         $test    = DB::table('test')->first();

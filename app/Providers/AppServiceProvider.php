@@ -46,7 +46,11 @@ class AppServiceProvider extends ServiceProvider
             $query = vsprintf($query, $sql->bindings);
 
             // Save the query to file
-            $logFile = fopen(storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'), 'a+');
+            // $logFile = fopen(storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'), 'a+');
+
+            $logFile = fopen(storage_path('logs' . DIRECTORY_SEPARATOR . 'query_' . date('Y-m-d') . '.log'), 'a+');
+
+
             fwrite($logFile, date('Y-m-d H:i:s') . ': ' . $query . PHP_EOL);
             fclose($logFile);
 
