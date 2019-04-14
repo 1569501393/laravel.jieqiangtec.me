@@ -54,15 +54,19 @@ class Indexcontroller extends CommonController
                 if ($input['password_o'] == $_password){
                     $user->user_pass = Crypt::encrypt($input['password']);
                     $user->update();
-                    return redirect('admin/info');
+
+                    // return redirect('admin/info');
+                    // 不做跳转回详情页，本业提示
+                    return back()->with('errors',['密码修改成功']);
                 }else{
                     // return back()->with('errors','原密码错误');
                     return back()->with('errors',['原密码错误']);
                 }
             }else {
                 return back()->withErrors($validator);
-                dd($validator->errors()->all());
-                echo 'no';
+
+                // dd($validator->errors()->all());
+                // echo 'no';
             }
             // dd($input, $validator);
         }else {
