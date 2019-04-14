@@ -6,6 +6,7 @@ use App\Http\Model\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class CategoryController
@@ -99,28 +100,69 @@ class CategoryController extends CommonController
     }
 
     /**
-     * POST                                   | admin/category                 | category.store   | App\Http\Controllers\Admin\CategoryController@store
-     */
-    public function store()
-    {
-
-    }
-
-    /**
      * 添加分类
      *  GET|HEAD                               | admin/category/create          | category.create  | App\Http\Controllers\Admin\CategoryController@create
      */
     public function create()
     {
-
+        $data = Category::where('cate_pid', 0)->get();
+        // return view('admin/category/add')->with('data',$data);
+        return view('admin/category/add', compact('data'));
     }
 
+
     /**
-     * 删除单个分类信息
-     * DELETE                                 | admin/category/{category}      | category.destroy | App\Http\Controllers\Admin\CategoryController@destroy
+     * 添加分类提交
+     * POST                                   | admin/category                 | category.store   | App\Http\Controllers\Admin\CategoryController@store
      */
-    public function destroy()
+    public function store()
     {
+        // $input = Input::all();
+        // 过滤_token字段
+        $input = Input::except('_token');
+        // dd($input);
+        $rules = [
+            'cate_name' => 'required',
+        ];
+
+        $messages = [
+            'cate_name.required' => '分类名称不能为空',
+        ];
+
+        $validator = Validator::make($input, $rules, $messages);
+        // dd($validator->passes());
+        if ($validator->passes()) {
+            $res = Category::create($input);
+            // dd($res);
+            if ($res) {
+                return redirect('admin/category');
+            }else {
+                return back()->withErrors(['添加失败，请稍后重试']);
+            }
+
+        }else {
+            return back()->withErrors($validator);
+            // dd($validator->errors()->all());
+            // echo 'no';
+        }
+
+        // dd($input);
+    }
+
+
+    /**
+     * 编辑单个分类信息
+     * GET|HEAD                               | admin/category/{category}/edit | category.edit    | App\Http\Controllers\Admin\CategoryController@edit
+     */
+    public function edit($cate_id)
+    {
+        // $field = Category::where('cate_id', $cate_id)->get();
+        $field = Category::find($cate_id);
+        $data  = Category::where('cate_pid', 0)->get();
+
+        // dd($cate_id, $field);
+        // return view('admin.category.edit', compact('field'));
+        return view('admin/category/add', compact('field', 'data'));
 
     }
 
@@ -129,9 +171,40 @@ class CategoryController extends CommonController
      * 更新单个分类信息
      * PUT|PATCH                              | admin/category/{category}      | category.update  | App\Http\Controllers\Admin\CategoryController@update
      */
-    public function update()
+    public function update($cate_id)
     {
+        $input = Input::except('_token', '_method');
+        // dd($cate_id, $input);
+        $res = Category::where('cate_id', $cate_id)->update($input);
+        if ($res) {
+            return redirect('admin/category');
+        }else {
+            return back()->withErrors(['分类信息更新失败，请稍后重试']);
+        }
+    }
 
+
+    /**
+     * 删除单个分类信息
+     * DELETE                                 | admin/category/{category}      | category.destroy | App\Http\Controllers\Admin\CategoryController@destroy
+     */
+    public function destroy($cate_id)
+    {
+        // dd($cate_id);
+        $res = Category::where('cate_id', $cate_id)->delete();
+        Category::where('cate_pid', $cate_id)->update(['cate_pid' => 0]);
+        if ($res) {
+            $data = [
+                'status' => 0,
+                'msg' => '分类删除成功',
+            ];
+        }else {
+            $data = [
+                'status' => 1,
+                'msg' => '分类删除失败，请稍后重试',
+            ];
+        }
+        return $data;
     }
 
     /**
@@ -143,12 +216,5 @@ class CategoryController extends CommonController
 
     }
 
-    /**
-     * 编辑单个分类信息
-     * GET|HEAD                               | admin/category/{category}/edit | category.edit    | App\Http\Controllers\Admin\CategoryController@edit
-     */
-    public function edit()
-    {
 
-    }
 }
