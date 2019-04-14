@@ -22,16 +22,16 @@ class LoginController extends CommonController
         // $input = Input::all();
         //  dd($input); // "s" => "/admin/login"
         // dd(Input::post());
-        if ($_POST) {
-            // dd($_POST);
+        if ($input = Input::all()) {
+            // dd($input);
             $code  = new \Code();
             $_code = $code->get();
-            if (strtoupper($_POST['code']) != $_code) {
+            if (strtoupper($input['code']) != $_code) {
                 return back()->with('msg', '验证码错误');
             }
 
             $user = User::first();
-            if (($user->user_name != $_POST['user_name']) || (Crypt::decrypt($user->user_pass) != $_POST['user_pass'])) {
+            if (($user->user_name != $input['user_name']) || (Crypt::decrypt($user->user_pass) != $input['user_pass'])) {
                 return back()->with('msg', '用户名或者密码错误');
             }
 

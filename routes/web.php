@@ -70,6 +70,9 @@ Route::group(['middleware' => ['web', 'admin.login'], 'prefix'=>'admin', 'namesp
     // 修改密码
     Route::any('pass', 'IndexController@pass');
 
+    // 修改分类排序
+    Route::post('cate/changeorder', 'CategoryController@changeOrder');
+
     // 文章分类 资源路由
     Route::resource('category', 'CategoryController');
 });

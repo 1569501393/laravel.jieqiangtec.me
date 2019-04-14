@@ -3,29 +3,29 @@
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a>  &raquo; 全部分类
+        <i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a> &raquo; 全部分类
     </div>
     <!--面包屑导航 结束-->
 
-	<!--结果页快捷搜索框 开始-->
-	{{--<div class="search_wrap">--}}
-        {{--<form action="" method="post">--}}
-            {{--<table class="search_tab">--}}
-                {{--<tr>--}}
-                    {{--<th width="120">选择分类:</th>--}}
-                    {{--<td>--}}
-                        {{--<select onchange="javascript:location.href=this.value;">--}}
-                            {{--<option value="">全部</option>--}}
-                            {{--<option value="http://www.baidu.com">百度</option>--}}
-                            {{--<option value="http://www.sina.com">新浪</option>--}}
-                        {{--</select>--}}
-                    {{--</td>--}}
-                    {{--<th width="70">关键字:</th>--}}
-                    {{--<td><input type="text" name="keywords" placeholder="关键字"></td>--}}
-                    {{--<td><input type="submit" name="sub" value="查询"></td>--}}
-                {{--</tr>--}}
-            {{--</table>--}}
-        {{--</form>--}}
+    <!--结果页快捷搜索框 开始-->
+    {{--<div class="search_wrap">--}}
+    {{--<form action="" method="post">--}}
+    {{--<table class="search_tab">--}}
+    {{--<tr>--}}
+    {{--<th width="120">选择分类:</th>--}}
+    {{--<td>--}}
+    {{--<select onchange="javascript:location.href=this.value;">--}}
+    {{--<option value="">全部</option>--}}
+    {{--<option value="http://www.baidu.com">百度</option>--}}
+    {{--<option value="http://www.sina.com">新浪</option>--}}
+    {{--</select>--}}
+    {{--</td>--}}
+    {{--<th width="70">关键字:</th>--}}
+    {{--<td><input type="text" name="keywords" placeholder="关键字"></td>--}}
+    {{--<td><input type="submit" name="sub" value="查询"></td>--}}
+    {{--</tr>--}}
+    {{--</table>--}}
+    {{--</form>--}}
     {{--</div>--}}
     <!--结果页快捷搜索框 结束-->
 
@@ -57,41 +57,40 @@
                     </tr>
 
                     @foreach($data as $v)
-                    <tr>
-                        <td class="tc">
-                            <input type="text" name="ord[]" value="{{$v->cate_order}}">
-                        </td>
-                        <td class="tc">{{$v->cate_id}}</td>
-                        <td>
-                            <a href="#">{{$v->cate_name}}</a>
-                        </td>
-                        <td>{{$v->cate_title}}</td>
-                        <td>{{$v->cate_view}}</td>
+                        <tr>
+                            <td class="tc">
+                                <input type="text" onchange="changeOrder(this, {{$v->cate_id}})" value="{{$v->cate_order}}">
+                            </td>
+                            <td class="tc">{{$v->cate_id}}</td>
+                            <td>
+                                <a href="#">{{$v->_cate_name}}</a>
+                            </td>
+                            <td>{{$v->cate_title}}</td>
+                            <td>{{$v->cate_view}}</td>
 
-                        <td>
-                            <a href="#">修改</a>
-                            <a href="#">删除</a>
-                        </td>
-                    </tr>
+                            <td>
+                                <a href="#">修改</a>
+                                <a href="#">删除</a>
+                            </td>
+                        </tr>
                     @endforeach
                 </table>
 
 
-<div class="page_nav">
-<div>
-<a class="first" href="/wysls/index.php/Admin/Tag/index/p/1.html">第一页</a> 
-<a class="prev" href="/wysls/index.php/Admin/Tag/index/p/7.html">上一页</a> 
-<a class="num" href="/wysls/index.php/Admin/Tag/index/p/6.html">6</a>
-<a class="num" href="/wysls/index.php/Admin/Tag/index/p/7.html">7</a>
-<span class="current">8</span>
-<a class="num" href="/wysls/index.php/Admin/Tag/index/p/9.html">9</a>
-<a class="num" href="/wysls/index.php/Admin/Tag/index/p/10.html">10</a> 
-<a class="next" href="/wysls/index.php/Admin/Tag/index/p/9.html">下一页</a> 
-<a class="end" href="/wysls/index.php/Admin/Tag/index/p/11.html">最后一页</a> 
-<span class="rows">11 条记录</span>
-</div>
-</div>
-
+                <div class="page_nav">
+                    <div>
+                        <a class="first" href="/wysls/index.php/Admin/Tag/index/p/1.html">第一页</a>
+                        <a class="prev" href="/wysls/index.php/Admin/Tag/index/p/7.html">上一页</a>
+                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/6.html">6</a>
+                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/7.html">7</a>
+                        <span class="current">8</span>
+                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/9.html">9</a>
+                        <a class="num" href="/wysls/index.php/Admin/Tag/index/p/10.html">10</a>
+                        <a class="next" href="/wysls/index.php/Admin/Tag/index/p/9.html">下一页</a>
+                        <a class="end" href="/wysls/index.php/Admin/Tag/index/p/11.html">最后一页</a>
+                        <span class="rows">11 条记录</span>
+                    </div>
+                </div>
 
 
                 <div class="page_list">
@@ -109,5 +108,21 @@
         </div>
     </form>
     <!--搜索结果页面 列表 结束-->
+
+    <script>
+        function changeOrder(obj, cate_id) {
+            var cate_order = $(obj).val();
+            $.post('{{url('admin/cate/changeorder')}}', {'_token':'{{csrf_token()}}', 'cate_id': cate_id, 'cate_order':cate_order}, function (data) {
+                // alert(data.msg);
+                if(data.status == 0){
+                    layer.msg(data.msg, {icon: 6});
+                }else{
+                    layer.msg(data.msg, {icon: 5});
+                }
+                // 刷新当前页面
+                // window.location.reload();
+            });
+        }
+    </script>
 
 @endsection

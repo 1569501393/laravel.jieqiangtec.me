@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Model\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class CategoryController
@@ -31,10 +32,70 @@ class CategoryController extends CommonController
      */
     public function index()
     {
-        $categorys = Category::all();
-        return view('admin.category.index')->with('data', $categorys);
+        /*$categorys = Category::all();
+        $data      = $this->getTree($categorys, 'cate_name', 'cate_id', 'cate_pid', 0);*/
+        // 静态方法
+        // $data = Category::tree();
+
+        // 非静态方法
+        $data = (new Category)->tree();
+        return view('admin.category.index')->with('data', $data);
         dd($categorys);
 
+    }
+
+
+    /**
+     * @param $data
+     * @param string $field_name
+     * @param string $field_id
+     * @param string $field_pid
+     * @param int $pid_value
+     * @return array
+     */
+    /*public function getTree($data, $field_name = 'cate_name', $field_id = 'id', $field_pid = 'pid', $pid_value = 0)
+    {
+        $arr = [];
+        foreach ($data as $k => $v) {
+            if ($v->$field_pid == $pid_value) {
+                // var_dump($v->cate_name);
+                $data[$k]['_' . $field_name] = $data[$k][$field_name];
+                $arr[]                       = $data[$k];
+                foreach ($data as $m => $n) {
+                    if ($n->$field_pid == $v->$field_id) {
+                        $data[$m]['_' . $field_name] = '├─' . $data[$m][$field_name];
+                        $arr[]                       = $data[$m];
+                    }
+                }
+            }
+        }
+        return $arr;
+    }*/
+
+
+    /**
+     * 修改排序
+     */
+    public function changeOrder()
+    {
+        $input            = Input::all();
+        $cate             = Category::find($input['cate_id']);
+        $cate->cate_order = $input['cate_order'];
+        $res              = $cate->update();
+        // dd($input, $res);
+
+        if ($res) {
+            $data = [
+                'status' => 0,
+                'msg' => '分类排序更新成功',
+            ];
+        }else {
+            $data = [
+                'status' => 1,
+                'msg' => '分类排序更新失败,请稍后重试',
+            ];
+        }
+        return $data;
     }
 
     /**
