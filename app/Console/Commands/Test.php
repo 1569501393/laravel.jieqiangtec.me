@@ -52,6 +52,9 @@ class Test extends Command
      */
     public function handle()
     {
+        // compact 函数测试
+        $data = [1,2,3];
+        dd(compact('data'));
         // 测试数据库连接
         $this->testDb();
         // 测试

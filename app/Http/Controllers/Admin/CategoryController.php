@@ -42,7 +42,6 @@ class CategoryController extends CommonController
         $data = (new Category)->tree();
         return view('admin.category.index')->with('data', $data);
         dd($categorys);
-
     }
 
 

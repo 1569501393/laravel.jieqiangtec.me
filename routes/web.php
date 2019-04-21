@@ -75,6 +75,12 @@ Route::group(['middleware' => ['web', 'admin.login'], 'prefix'=>'admin', 'namesp
 
     // 文章分类 资源路由
     Route::resource('category', 'CategoryController');
+
+    // 文章 资源路由
+    Route::resource('article', 'ArticleController');
+
+    // 文件上传
+    Route::any('upload', 'CommonController@upload');
 });
 
 
