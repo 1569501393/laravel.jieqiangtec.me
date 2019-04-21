@@ -18,19 +18,18 @@
                     <a href="{{url('admin/article/create')}}"><i class="fa fa-plus"></i>添加文章</a>
                     <a href="{{url('admin/article')}}"><i class="fa fa-recycle"></i>全部文章</a>
                 </div>
+                @if(count($errors) > 0)
+                    <div class="mark">
+                        @if(is_object($errors))
+                            @foreach($errors->all() as $error)
+                                <p>{{$error}}</p>
+                            @endforeach
+                        @else
+                            <p>{{$errors[0]}}</p>
+                        @endif
+                    </div>
+                @endif
             </div>
-
-            @if(count($errors) > 0)
-                <div class="mark">
-                    @if(is_object($errors))
-                        @foreach($errors->all() as $error)
-                            <p>{{$error}}</p>
-                        @endforeach
-                    @else
-                        <p>{{$errors[0]}}</p>
-                    @endif
-                </div>
-            @endif
         </div>
     </div>
     <div class="result_content">
@@ -40,8 +39,8 @@
     <!--结果集标题与导航组件 结束-->
 
     <div class="result_wrap">
-        @if(isset($field->cate_id))
-            <form action="{{url('admin/article/'.$field->cate_id)}}" method="post">
+        @if(isset($field->art_id))
+            <form action="{{url('admin/article/'.$field->art_id)}}" method="post">
                 <input type="hidden" name="_method" value="put">
                 @else
             <form action="{{url('admin/article')}}" method="post">
@@ -55,7 +54,7 @@
                                     <select name="cate_id">
                                         @foreach($data as $k=>$cate)
                                             <option value="{{$cate->cate_id}}"
-                                                    @if(isset($field->cate_id) && $field->cate_pid == $cate->cate_id ) selected @endif >{{$cate->_cate_name}}</option>
+                                                    @if(isset($field->cate_id) && $field->cate_id == $cate->cate_id ) selected @endif >{{$cate->_cate_name}}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -80,8 +79,7 @@
                             <tr>
                                 <th>缩略图：</th>
                                 <td>
-                                    <input type="text" size="50" name="art_thumb"
-                                           @if(isset($field->art_thumb)) value="{{$field->art_thumb}}" @endif>
+                                    <input type="text" size="50" name="art_thumb" @if(isset($field->art_thumb)) value="{{$field->art_thumb}}" @endif>
 
                                     <input id="file_upload" name="file_upload" type="file" multiple="true">
 
@@ -136,7 +134,7 @@
                             <tr>
                                 <th></th>
                                 <td>
-                                    <img src="" alt="" id="art_thumb_img" style="max-width: 350px; max-height:100px">
+                                    <img @if(isset($field->art_thumb)) src="/{{$field->art_thumb}}" @else src="" @endif  alt="" id="art_thumb_img" style="max-width: 350px; max-height:100px">
                                 </td>
                             </tr>
 
@@ -191,7 +189,7 @@
                                         }
                                     </style>
 
-                                    <script id="editor" name="art_content" type="text/plain" style="width:860px;height:500px;">@if(isset($field->art_content)) {{$field->art_content}} @endif</script>
+                                    <script id="editor" name="art_content" type="text/plain" style="width:860px;height:500px;">@if(isset($field->art_content)) {!! $field->art_content !!} @endif</script>
                                 </td>
                             </tr>
 

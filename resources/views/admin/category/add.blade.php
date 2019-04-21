@@ -19,7 +19,6 @@
 	                <a href="{{url('admin/category')}}"><i class="fa fa-recycle"></i>全部分类</a>
 	            </div>
 
-
                 @if(count($errors) > 0)
                     <div class="mark">
                         @if(is_object($errors))
