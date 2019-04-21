@@ -11,26 +11,28 @@
     <div class="result_wrap">
         <div class="result_title">
             <h3>分类管理</h3>
-        </div>
-        <!--快捷导航 开始-->
-        <div class="result_content">
-            <div class="short_wrap">
-                <a href="{{url('admin/category/create')}}"><i class="fa fa-plus"></i>添加分类</a>
-                <a href="{{url('admin/category')}}"><i class="fa fa-recycle"></i>全部分类</a>
-            </div>
-        </div>
+        
+	        <!--快捷导航 开始-->
+	        <div class="result_content">
+	            <div class="short_wrap">
+	                <a href="{{url('admin/category/create')}}"><i class="fa fa-plus"></i>添加分类</a>
+	                <a href="{{url('admin/category')}}"><i class="fa fa-recycle"></i>全部分类</a>
+	            </div>
 
-        @if(count($errors) > 0)
-            <div class="mark">
-                @if(is_object($errors))
-                    @foreach($errors->all() as $error)
-                        <p>{{$error}}</p>
-                    @endforeach
-                @else
-                    <p>{{$errors[0]}}</p>
+
+                @if(count($errors) > 0)
+                    <div class="mark">
+                        @if(is_object($errors))
+                            @foreach($errors->all() as $error)
+                                <p>{{$error}}</p>
+                            @endforeach
+                        @else
+                            <p>{{$errors[0]}}</p>
+                        @endif
+                    </div>
                 @endif
             </div>
-        @endif
+	    </div>
     </div>
     <div class="result_content">
 
