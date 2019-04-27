@@ -51,7 +51,8 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             // 'prefix' => '',
             'prefix' => env('DB_PREFIX', ''),
-            'strict' => true,
+            // 'strict' => true,
+            'strict' => false,
             'engine' => null,
         ],
 

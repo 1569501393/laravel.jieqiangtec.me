@@ -81,6 +81,18 @@ Route::group(['middleware' => ['web', 'admin.login'], 'prefix'=>'admin', 'namesp
 
     // 文件上传
     Route::any('upload', 'CommonController@upload');
+
+    Route::post('links/changeorder', 'LinksController@changeOrder');
+    Route::resource('links', 'LinksController');
+
+    Route::post('navs/changeorder', 'NavsController@changeOrder');
+    Route::resource('navs', 'NavsController');
+
+    Route::get('config/putfile', 'ConfigController@putFile');
+    Route::post('config/changecontent', 'ConfigController@changeContent');
+    Route::post('config/changeorder', 'ConfigController@changeOrder');
+    Route::resource('config', 'ConfigController');
+
 });
 
 
