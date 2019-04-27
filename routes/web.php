@@ -24,11 +24,21 @@ Route::get('/', function (){
     return view('welcome');
 });
 
+
 Route::group(['middleware' => ['web']], function (){
 
     Route::get('/', function (){
         return view('welcome');
     });
+
+    // 前台路由
+    Route::get('/', 'Home\IndexController@index');
+    Route::get('/cate/{cate_id}', 'Home\IndexController@cate');
+    Route::get('/a/{art_id}', 'Home\IndexController@article');
+
+    Route::any('admin/login', 'Admin\LoginController@login');
+    Route::get('admin/code', 'Admin\LoginController@code');
+
 
     Route::get('/test', 'IndexController@index');
 
