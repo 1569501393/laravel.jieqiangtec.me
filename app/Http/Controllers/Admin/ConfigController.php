@@ -49,11 +49,17 @@ class ConfigController extends Controller
             Config::where('conf_id',$v)->update(['conf_content'=>$input['conf_content'][$k]]);
         }
         $this->putFile();
-        return back()->with('errors','配置项更新成功！');
+        // return back()->with('errors','配置项更新成功');
+        // return back()->with('errors',['配置项更新成功']);
+        return back()->withErrors(['配置项更新成功']);
+
     }
 
     public function putFile()
     {
+        // dd(\Illuminate\Support\Facades\Config::get('web.web_title'));
+        /*$config = Config::pluck('conf_content','conf_name');
+        dd($config, var_export($config));*/
         $config = Config::pluck('conf_content','conf_name')->all();
         $path = base_path().'\config\web.php';
         $str = '<?php return '.var_export($config,true).';';
