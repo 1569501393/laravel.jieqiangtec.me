@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -52,8 +53,14 @@ class Test extends Command
      */
     public function handle()
     {
+
+        $credentials['status'] = 1;
+        $res = Auth::attempt($credentials);
+        dd($res);
+
         // compact 函数测试
         $data = [1,2,3];
+        dd(count($data));
         dd(compact('data'));
         // 测试数据库连接
         $this->testDb();
