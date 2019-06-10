@@ -24,11 +24,21 @@ Route::get('/', function (){
     return view('welcome');
 });
 
+
 Route::group(['middleware' => ['web']], function (){
 
     Route::get('/', function (){
         return view('welcome');
     });
+
+    // 前台路由
+    Route::get('/', 'Home\IndexController@index');
+    Route::get('/cate/{cate_id}', 'Home\IndexController@cate');
+    Route::get('/a/{art_id}', 'Home\IndexController@article');
+
+    Route::any('admin/login', 'Admin\LoginController@login');
+    Route::get('admin/code', 'Admin\LoginController@code');
+
 
     Route::get('/test', 'IndexController@index');
 
@@ -75,6 +85,24 @@ Route::group(['middleware' => ['web', 'admin.login'], 'prefix'=>'admin', 'namesp
 
     // 文章分类 资源路由
     Route::resource('category', 'CategoryController');
+
+    // 文章 资源路由
+    Route::resource('article', 'ArticleController');
+
+    // 文件上传
+    Route::any('upload', 'CommonController@upload');
+
+    Route::post('links/changeorder', 'LinksController@changeOrder');
+    Route::resource('links', 'LinksController');
+
+    Route::post('navs/changeorder', 'NavsController@changeOrder');
+    Route::resource('navs', 'NavsController');
+
+    Route::get('config/putfile', 'ConfigController@putFile');
+    Route::post('config/changecontent', 'ConfigController@changeContent');
+    Route::post('config/changeorder', 'ConfigController@changeOrder');
+    Route::resource('config', 'ConfigController');
+
 });
 
 
